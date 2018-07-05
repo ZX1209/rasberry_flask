@@ -15,8 +15,5 @@ def hello_world():
 @app.route('/r_ip')
 def set_r_ip():
     user_ip = request.remote_addr
-	user_port = request.environ.get('REMOTE_PORT')
-	return	jsonify(ip=user_ip,port=user_port,ip_type=type(user_ip,port_type=type(port))
-
-    
-    
+    user_port = request.environ.get('REMOTE_PORT')
+    return jsonify(ip=user_ip,port=user_port)    
