@@ -1,4 +1,5 @@
 #rasberry run on port 20002
+#数据暂时还是以json 格式发送与接送
 
 from flask import Flask
 app = Flask(__name__)
