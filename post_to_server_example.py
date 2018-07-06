@@ -1,32 +1,39 @@
+#! /usr/bin/env python3
+
+
 import json
-import request
+import requests
+import serial
+
+arduino = serial.Serial('/dev/ttyACM0',115200,timeout=1)
+
+arduino.readline()
+arduino.readline()
+arduino.readline()
+arduino.readline()
+arduino.readline()
+arduino.readline()
+
+tmp = arduino.readline()
+tmp=tmp.decode('utf-8')
+tmp_ints=list(map(int,tmp.split(',')))
 
 posts=[
             {'key':'test1',
-             'value':10
+             'value':tmp_ints[0]
              },
              {'key':'test2',
-             'value':11
+             'value':tmp_ints[1]
              },
              {'key':'test3',
-             'value':12
-             },
-             {'key':'test4',
-             'value':13
-             },
-             {'key':'test5',
-             'value':14
-             },
-             {'key':'test6',
-             'value':15
-             },
-             {'key':'test6',
-             'value':15
+             'value':tmp_ints[2]
              }
            ]
 
 json_data=json.dumps(posts)
 
-request.post('http://159.89.155.162:5000/info',data=json_data)
+requests.post('http://159.89.155.162:5000/info',data=json_data)
 
 
+
+arduino.close()
