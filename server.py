@@ -19,7 +19,8 @@ def set_r_ip():
 
 @app.route('/info')
 def show_info():
-    return render_template('info.html')
+    a_dict={"key1":10,"key2":20}
+    return render_template('info.html',my_dict=a_dict)
 
 if __name__=='__main__':
     app.run(debug=True)
