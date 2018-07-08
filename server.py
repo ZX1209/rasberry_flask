@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask,request,jsonify,render_template
 
 app = Flask(__name__)
@@ -7,23 +9,21 @@ r_ip='127.0.0.1'
 r_port='10000'
 
 
-posts=[
-            {'key':'温度',
-             'value':12
-             },
-             {'key':'湿度',
-             'value':12
-             },
-             {'key':'氧气',
-             'value':12
-             },
-             {'key':'阳光',
-             'value':12
-             },
-             {'key':'声音',
-             'value':12
-             }
-           ]
+posts=[ {'key':'温度',
+         'value':12
+         },
+         {'key':'湿度',
+         'value':12
+         },
+         {'key':'氧气',
+         'value':12
+         },
+         {'key':'阳光',
+         'value':12
+         },
+         {'key':'声音',
+         'value':12
+         }]
 
 @app.route('/')
 def hello_world():
