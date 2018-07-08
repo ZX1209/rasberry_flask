@@ -19,6 +19,26 @@ hgroup, menu, nav, output, section, summary, time, mark, audio, video {
     position: static;
 }
 
+.key {
+    background-color: white;
+    margin: 10px;
+}
+
+.value {
+    background-color: white;
+    margin: 10px;
+}
+
+.information {
+    width:200px;
+    background-color: white;
+    box-shadow: 1px 1px 20px 0px #797777;
+    margin:auto;
+    margin-bottom:10px;
+
+}
+
+
 .box-shadow-card {
     box-shadow: 0 7px 10px -5px rgba(255,152,0,.4);
     box-shadow: 2px 2px 5px #000;
