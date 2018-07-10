@@ -1,38 +1,34 @@
-#! /usr/bin/env python3
-
 import json
 import requests
 import serial
 import time
 
-
-
-
-arduino = serial.Serial('/dev/ttyACM0', 9600,timeout=1);   #open named port at 9600,1s timeot
+arduino = serial.Serial('/dev/ttyACM0',9600,timeout=2);   #open named port at 9600,1s timeot
 
 #try and exceptstructure are exception handler
 try:
   while 1:
+    sensorValue = '0'
     tmp_ints = [0,0,0,0]
     arduino.write(b'h')
     sensorValue=arduino.readline()
-    sensorValue=sensorValue.decode('utf-8')
-    tmp_ints[0]=int(sensorValue)
-
+    sensorValue=sensorValue.split()[0]
+    tmp_ints[0]=float(sensorValue)
+    
     arduino.write(b's')
     sensorValue=arduino.readline()
-    sensorValue=sensorValue.decode('utf-8')
-    tmp_ints[1]=int(sensorValue)
+    sensorValue=sensorValue.split()[0]
+    tmp_ints[1]=float(sensorValue)
 
     arduino.write(b'l')
     sensorValue=arduino.readline()
-    sensorValue=sensorValue.decode('utf-8')
-    tmp_ints[2]=int(sensorValue)
+    sensorValue=sensorValue.split()[0]
+    tmp_ints[2]=float(sensorValue)
 
     arduino.write(b'k')
     sensorValue=arduino.readline()    
-    sensorValue=sensorValue.decode('utf-8')
-    tmp_ints[3]=int(sensorValue)
+    sensorValue=sensorValue.split()[0]
+    tmp_ints[3]=float(sensorValue)
 
     posts=[
         {'key':'温度',
@@ -45,18 +41,18 @@ try:
          'value':tmp_ints[2]
          },
          {'key':'旋钮',
-         'value':tmp_ints[2]
+         'value':tmp_ints[3]
          }
         ]
 
     json_data=json.dumps(posts)
 
     requests.post('http://159.89.155.162:5000/info',data=json_data)
+    print('data post success')
+    time.sleep(10);
 
-    time.delay(60);
-
-except:
-  arduino.close();
+finally:
+    arduino.close();
 
 
 
