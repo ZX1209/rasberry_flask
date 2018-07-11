@@ -62,13 +62,6 @@ body {
   height: 647px;
 }
 
-/*header*/
-.header-line {
-    width: 100%;
-    height: 100px;
-    background-image: url("./resources/snipaste_20180415_1454011.png");
-    background-size:100% 100px;
-}
 
 .bottom {
   width: 100%;

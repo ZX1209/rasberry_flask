@@ -3,38 +3,16 @@
 {% block main_area %}
 
 <div class="informations">
-    <div class="information">
-        <h2>
-            <span class="key">
-                湿度:
-            </span>
-            <span class="value">
-                12
-            </span>
-        </h2>
-    </div>
-
-    <div class="information">
-        <h2>
-            <span class="key">
-                温度
-            </span>
-            <span class="value">
-                12
-            </span>
-        </h2>
-    </div>
-
     {%for post in posts %}
     <div class="information">
         <h2>
-            <span class="key">
-                {{post.key}}
-            </span>
-            <span class="value">
+            <div class="key">
+                {{post.key}} :
+            </div>
+            <div class="value">
                 {{post.value}}
              
-            </span>
+            </div>
         </h2>
     </div>
     {% endfor %}

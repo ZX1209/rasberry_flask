@@ -42,9 +42,5 @@ def show_info():
 def post_info():
     global posts
     json_data=request.get_json(force=True)
-    print(json_data)
-    print(json_data[0])
-    print(type(json_data))
-    print(type(json_data[0]))
     posts=json_data
     return 'ok'
