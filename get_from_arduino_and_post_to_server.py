@@ -4,7 +4,8 @@ import serial
 import time
 
 arduino = serial.Serial('/dev/ttyACM0',9600,timeout=2);   #open named port at 9600,1s timeot
-
+arduino.write(b'h')
+arduino.readall()
 #try and exceptstructure are exception handler
 try:
   while 1:
