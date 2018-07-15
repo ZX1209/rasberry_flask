@@ -22,6 +22,7 @@ hgroup, menu, nav, output, section, summary, time, mark, audio, video {
 .key {
     background-color: white;
     margin: 10px;
+
 }
 
 .value {
@@ -34,7 +35,7 @@ hgroup, menu, nav, output, section, summary, time, mark, audio, video {
     background-color: white;
     box-shadow: 1px 1px 20px 0px #797777;
     margin:auto;
-    margin-bottom:10px;
+    margin-bottom:20px;
 
 }
 
