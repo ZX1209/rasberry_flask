@@ -12,6 +12,8 @@ server ip 159.89.155.162
 
 
 # todos
+- 树莓派,数据库
+- 树莓派,api
 -  植物灯??
 - 人体模块
     tensorflow 训练．．
