@@ -1,0 +1,82 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+        <title>data_page</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+        <link rel="stylesheet"
+      href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script language="JavaScript" type="text/javascript" src="{{url_for('static',filename='main.js')}}"></script>
+        <style>
+          body { background-image : url("../images/big_flowerpot.png");
+                 background-position: center;
+                 height: 400px;
+                 background-repeat: no-repeat;
+               }
+          .progbar  {width: 250px;                 /*设定进度条宽度*/
+                     height: 30px;
+                     }               /*设定进度条高度*/
+          .informations {position: absolute;
+                         left: 40%;
+                         top:40%
+                         }
+          #progmsg  {width: 250px; text-align:center}
+        </style>
+    </head>
+    <body>
+        <div class="header-line" >
+            <!--这里是头部-->
+        </div>
+        <div class="main_area" >
+            <div class="movies">
+                <div class="informations">
+                    <div class="information">
+                        <h2>
+                            <p class="key" id="humidity">
+                                湿度:
+                            <span class="value" id="humidity_value">
+                                12
+                            </span>
+                            </p>
+                            <div id="progbar_humidity" class="progbar"></div>
+                        </h2>
+                    </div>
+
+                    <div class="information">
+                        <h2>
+                            <p class="key" id="temperature">
+                                温度
+                            <span class="value" id="temperature_value">
+                                12
+                            </span>
+                            </p>
+                            <div id="progbar_temperature" class="progbar"></div>
+                        </h2>
+                    </div>
+
+                   {%for post in posts %}
+                    <div class="information">
+                        <h2>
+                            <span class="key">
+                                {{post.key}}
+                            </span>
+                            <span class="value">
+                                {{post.value}}
+
+                            </span>
+                        </h2>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <script>
+        //设定进度条功能
+        $('#progbar_humidity').progressbar({'value':12,'max':100})
+        $('#progbar_temperature').progressbar({'value':12,'max':100})
+        </script>
+    </body>
+</html>

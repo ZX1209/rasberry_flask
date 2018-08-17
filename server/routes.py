@@ -22,7 +22,11 @@ posts=[ {'key':'温度',
          'value':12
          }]
 
-@app.route('/')
+@app.route('/',methods=['GET'])
+def get_homepage():
+    return render_template('data_page.html')
+
+@app.route('/hello')
 def hello_world():
     return 'Hello, World!'
 
@@ -44,3 +48,10 @@ def post_info():
     json_data=request.get_json(force=True)
     posts=json_data
     return 'ok'
+
+
+
+
+@app.route('/charts')
+def get_charts():
+    return render_template('charts.html')
