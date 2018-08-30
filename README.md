@@ -1,6 +1,10 @@
 server ip 159.89.155.162 
 # 平常不开...
 
+set FLASK_DEBUG=1
+set FLASK_APP=server
+set FLASK_ENV=development
+
 # 
 首先，数字信号和模拟信号都可以作为电源来输出，，
 两者的输出的电压取决与输入的电压也就是vcc　接了多少
