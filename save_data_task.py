@@ -31,24 +31,25 @@ try:
       soil = get_sensor_value(b's')
       light = get_sensor_value(b'l')
       heat = get_sensor_value(b'h')
+      knob = get_sensor_value(b'k')
+      ispeople = get_sensor_value(b'p')
       t = datetime.datetime.now()
       t=str(t)
 
-      print(t,soil,light,heat)
-      tmp = (t,light,heat,soil)
+      print(t,soil,light,heat,knob,ispeople)
+      tmp = (t,light,heat,soil,knob,ispeople)
 
       try:
-          cursor.execute('insert into test(time,l,h,s) values(?,?,?,?)',tmp)
-          connect.commit()
+          cursor.execute('insert into alldata(time,soil,light,heat,knob,ispeople) values(?,?,?,?,?,?)',tmp)
+          connect.commit() 
+          logging.debug('saved')
+          time.sleep(30)
+
       except sqlite3.OperationalError :
           logging.debug('locked')
           time.sleep(2)
 
 
-      logging.debug('saved')
-
-      time.sleep(10)
-      
 
 finally:
     connect.commit()

@@ -36,7 +36,7 @@ def hello_world():
 @app.route('/test/db')
 def test_db():
     cur = get_db().cursor()
-    cur.execute('select * from test limit 10')
+    cur.execute('select * from alldata order by time limit 10')
     tmp = cur.fetchall()
     return jsonify(result=tmp)
 
@@ -49,7 +49,7 @@ def get_delta_data(deltahour):
     nowt = datetime.datetime.now()
     dist = nowt-dis
     t = (str(dist),)
-    cur.execute("select * from test where time>?",t)
+    cur.execute("select * from alldata where time>?",t)
     tmp = cur.fetchall()
     return jsonify(result=tmp)
 
