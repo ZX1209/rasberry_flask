@@ -1,5 +1,7 @@
+/*高领start*/
+
 /*重置样式*/
-/*
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
 acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub
 , sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
@@ -10,14 +12,17 @@ hgroup, menu, nav, output, section, summary, time, mark, audio, video {
     border: 0;
     position: static;
 }
-*/
+
 /*重置样式*/
+/*
 * {
     margin: 0;
     padding: 0;
     border: 0;
     position: static;
 }
+*/
+
 
 .key {
     background-color: white;
@@ -182,3 +187,66 @@ left-fixed 和 right-fixed
 .main_area{
 
 }
+
+/*高领*/
+
+
+/*赵辉start*/
+#main
+{
+    border: 2px blue solid;
+    width: 1520px;
+    height: 920px;
+    position: relative;
+}
+
+#temp
+{
+    border: 2px red solid;
+    position: absolute;
+    left: 0;
+}
+
+#light
+{
+    border: 2px red solid;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#air
+{
+    border: 2px red solid;
+    position: absolute;
+    bottom: 0;
+}
+
+#soil
+{
+    border: 2px red solid;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/*赵辉*/
+
+/*薛子涵start*/
+body { 
+  background-image : url("../images/big_flowerpot.png");
+  background-position: center;
+  height: 400px;
+  background-repeat: no-repeat;
+}
+.progbar {
+  width: 250px;                 /*设定进度条宽度*/
+  height: 30px;
+}               /*设定进度条高度*/
+.informations {
+  position: absolute;
+  left: 40%;
+  top:40%
+}
+
+#progmsg  {width: 250px; text-align:center}
+/*薛子涵*/

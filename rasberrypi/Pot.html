@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script type="text/javascript" src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
+    <script type="text/javascript" src="dark.js"></script>
+    <style type="text/css">
+        #main{
+            border:2px blue solid;
+            width: 1520px;
+            height: 920px;
+            position:relative;
+        }
+        #temp{
+            border:2px red solid;
+            position:absolute;
+            left: 0;        
+        }
+        #light{
+            border:2px red solid;
+            position:absolute;
+            right: 0;
+            bottom: 0;         
+        }
+        #air{
+            border:2px red solid;
+            position:absolute;
+            bottom: 0;
+        }
+        #soil{
+            border:2px red solid;
+            position:absolute;
+            top: 0;
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main">
+    <div id="temp"  style="width: 750px; height:450px;"></div>
+    <div id="light" style="width: 750px;  height:450px;"></div>
+    <div id="air"   style="width: 750px; height: 450px;"></div>
+    <div id="soil"  style="width: 750px;  height: 450px;"></div>
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var container=document.getElementById('temp');
+        var myChart = echarts.init(container, 'dark');
+
+        // 指定图表的配置项和数据
+        var option = {
+    title:{
+        text:'温度',
+        left:'center',
+        textStyle:{
+            color:'red',
+            fontSize:20
+        }
+    },
+    xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        name:'日期',
+        nameTextStyle:{
+            fontSize:16,
+            color:'red'
+        },
+        axisLabel:{
+            color:'green',
+            rotate:20
+        },
+        axisLine:{
+            lineStyle:{
+                color:'red',
+                width:5
+            }
+        },
+        axisTick:{
+            length:10,
+            lineStyle:{
+                color:'green',
+                width:5
+            }
+        }
+    },
+    yAxis: {
+        type: 'value',
+        name:'温度/℃',
+        min:30,
+        nameTextStyle:{
+            fontSize:20,
+            color:'blue'
+        }
+        
+    },
+    toolbox:{
+        borderWidth:1,
+        right:50,
+      feature:{
+          dataZoom:{},
+          dataView:{show:true,
+              title:'数据视图',
+              readOnly:false,
+              
+          },
+          magicType:{
+              type:['bar','pie']
+          },
+          restore:{},
+          saveAsImage:{}
+      }
+    },
+    tooltip:{
+        trigger:'axis',
+        formatter: "{a} <br/>{b} : {c} ℃",
+        axisPointer:{
+            type:'cross'
+        }
+        
+    },
+    series: [{
+        name:'温度',
+        data: [35,36,34,36,35,37,36],
+        type: 'line'
+    }]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+    </script>
+    <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+        var container=document.getElementById('light');
+        var myChart = echarts.init(container, 'dark');
+
+        // 指定图表的配置项和数据
+        var option = {
+    title:{
+        text:'光照强度',
+        left:'center',
+        textStyle:{
+            color:'blue',
+            fontSize:20
+        }
+    },
+    toolbox:{
+        feature:{
+        dataZoom:{},
+        dataView:{},
+        magicType:{
+            type:['bar'],
+        },
+        restore:{}
+        },
+        borderWidth:1,
+        right:20
+    },
+    tooltip:{
+        trigger:'axis',
+        formatter:"{a}<br/>{b}:{c}勒克斯",
+        axisPointer:{
+            type:'cross'
+        }
+        
+    },
+    xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        name:'日期',
+        nameTextStyle:{
+            color:'red',
+            fontSize:20
+        },
+        axisLabel:{
+            color:'green',
+            rotate:20
+        },
+        axisLine:{
+            lineStyle:{
+                color:'red',
+                width:5
+            }
+        },
+        axisTick:{
+            length:10,
+            lineStyle:{
+                color:'green',
+                width:5
+            }
+        }
+    },
+    yAxis: {
+        type: 'value',
+        name:'光照强度/lx',
+        min:200
+    },
+    series: {
+        name:'光照强度',
+        data: [350,410,550,480,465,564,492],
+        type: 'line',
+        smooth: true,
+        markPoint:{
+            data:[
+            {type:'max',name:'最大值'},
+            {type:'min',name:'最小值'}
+        ]},
+        markLine:{
+            data:[
+                {type:'average',name :'平均值'}]
+        }
+    }
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+        var container=document.getElementById('air');
+        var myChart = echarts.init(container, 'dark');
+
+        // 指定图表的配置项和数据
+        var option = {
+    title : {
+        text: '空气密度分析',
+        subtext: '各气体成分占比',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : 百分之{c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['氧气','氮气','二氧化碳','稀有气体','其他气体和杂质']
+    },
+    toolbox:{
+        borderWidth:1,
+        right:20,
+        feature:{
+            dataZoom:{},
+            dataView:{},
+            restore:{},
+            saveAsImage:{}
+        }
+    },
+    series : [
+        {
+            name: '空气成分',
+            type: 'pie',
+            radius : '80%',
+            center: ['50%', '60%'],
+            data:[{value:21, name:'氧气'},
+                {value:78, name:'氮气'},
+                {value:0.031, name:'二氧化碳'},
+                {value:0.939, name:'稀有气体'},
+                {value:0.03, name:'其他气体和杂质'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+        var container=document.getElementById('soil');
+        var myChart = echarts.init(container, 'dark');
+
+        // 指定图表的配置项和数据
+        var option = {
+    title:{
+       text:'土壤湿度',
+       left:'center',
+       subtext:'土壤水分贮存量',
+       textStyle:{
+           color:'black',
+           fontSize:20
+       },
+       subtextStyle:{
+           color:'gray',
+           fontSize:14
+       }
+    },
+    tooltip:{
+        trigger:'axis',
+        formatter:"{a}<br/>{b}:百分之{c}",
+        axisPointer:{
+            type:'cross'
+        }
+    },
+    toolbox:{
+        borderWidth:1,
+        right:20,
+        feature:{
+            dataView:{},
+            dataZoom:{},
+            restore:{},
+            saveAsImage:{},
+            magicType:{
+                type:['bar']
+            }
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        name:'日期',
+        nameTextStyle:{
+            color:'red',
+            fontSize:20
+        },
+        axisLine:{
+            lineStyle:{
+                color:'red',
+                width:5
+            }
+        },
+        axisLabel:{
+            color:'green',
+            rotate:20
+        },
+        axisTick:{
+            length:10,
+            lineStyle:{
+                color:'green',
+                width:5
+            }
+        }
+    },
+    yAxis: {
+        type: 'value',
+        name:'土壤湿度/重量百分数'
+    },
+    series: [{
+        name:'土壤湿度',
+        data: [60,70,50,65,75,60,65],
+        type: 'line',
+        areaStyle: {},
+        markPoint:{
+            data:[
+                {type:'max',name:'最大值'},
+                {type:'min',name:'最小值'}]
+        },
+        markLine:{
+            data:[
+                {type:'average',name:'平均值'}]
+        }
+        
+    }]
+};
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+    </script>
+</body>
+</html>

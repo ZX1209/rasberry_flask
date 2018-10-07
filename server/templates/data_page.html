@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+
+{% block head_area%}
+<script language="JavaScript" type="text/javascript" src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
+
+<link rel="stylesheet"href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+{% endblock %}
+
+
+{% block main_area %}
+<div class="header-line" >
+    <!--这里是头部-->
+</div>
+<div class="main_area" >
+    <div class="movies"> 
+        <div class="informations">
+            <div class="information">
+                <h2>
+                    <p class="key" id="humidity">
+                        湿度:
+                    <span class="value" id="humidity_value">
+                        12
+                    </span>
+                    </p>
+                    <div id="progbar_humidity" class="progbar"></div>
+                </h2>
+            </div>
+
+            <div class="information">
+                <h2>
+                    <p class="key" id="temperature">
+                        温度
+                    <span class="value" id="temperature_value">
+                        12
+                    </span>
+                    </p>
+                    <div id="progbar_temperature" class="progbar"></div>
+                </h2>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+//设定进度条功能
+$('#progbar_humidity').progressbar({'value':12,'max':100})
+$('#progbar_temperature').progressbar({'value':12,'max':100})
+</script>
+{% endblock %}
+
+
+{% block bottom_line %}
+
+{% endblock %}
+
+
+ 
