@@ -1,0 +1,223 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.clock {
+  width: 360px;
+  height: 360px;
+  margin: 90px auto 0;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0 0 0 9px #333, 0 0 0 18px #555, 0 0 0 27px #777, 0 0 0 36px #aaa;
+  background-image: radial-gradient(circle closest-side, #fff 92%, transparent 0), repeating-linear-gradient(6deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(12deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(18deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(24deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(36deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(42deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(48deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(54deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(66deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(72deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(78deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(84deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(96deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(102deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(108deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(114deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(126deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(132deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(138deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(144deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(156deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(162deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(168deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(174deg, transparent, transparent 50%, #ccc 0, #ccc calc(50% + 1px), transparent 0), repeating-linear-gradient(30deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(60deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(90deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(120deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(150deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(180deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(210deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(240deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(270deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(300deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(330deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0), repeating-linear-gradient(360deg, transparent, transparent 50%, #000 0, #000 calc(50% + 1px), transparent 0);
+}
+
+.mark {
+  top: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.mark > li {
+  top: 18px;
+  left: 50%;
+  position: absolute;
+  width: 72px;
+  height: 36px;
+  display: block;
+  margin-left: -36px;
+  -webkit-transform-origin: 36px 162px;
+          transform-origin: 36px 162px;
+}
+.mark > li::after {
+  content: attr(data-time);
+  text-align: center;
+  font-size: 36px;
+  line-height: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+.mark > li:nth-child(1) {
+  -webkit-transform: rotate(0.0833333333turn);
+          transform: rotate(0.0833333333turn);
+}
+.mark > li:nth-child(1)::after {
+  -webkit-transform: rotate(-0.0833333333turn);
+          transform: rotate(-0.0833333333turn);
+}
+.mark > li:nth-child(2) {
+  -webkit-transform: rotate(0.1666666667turn);
+          transform: rotate(0.1666666667turn);
+}
+.mark > li:nth-child(2)::after {
+  -webkit-transform: rotate(-0.1666666667turn);
+          transform: rotate(-0.1666666667turn);
+}
+.mark > li:nth-child(3) {
+  -webkit-transform: rotate(0.25turn);
+          transform: rotate(0.25turn);
+}
+.mark > li:nth-child(3)::after {
+  -webkit-transform: rotate(-0.25turn);
+          transform: rotate(-0.25turn);
+}
+.mark > li:nth-child(4) {
+  -webkit-transform: rotate(0.3333333333turn);
+          transform: rotate(0.3333333333turn);
+}
+.mark > li:nth-child(4)::after {
+  -webkit-transform: rotate(-0.3333333333turn);
+          transform: rotate(-0.3333333333turn);
+}
+.mark > li:nth-child(5) {
+  -webkit-transform: rotate(0.4166666667turn);
+          transform: rotate(0.4166666667turn);
+}
+.mark > li:nth-child(5)::after {
+  -webkit-transform: rotate(-0.4166666667turn);
+          transform: rotate(-0.4166666667turn);
+}
+.mark > li:nth-child(6) {
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
+}
+.mark > li:nth-child(6)::after {
+  -webkit-transform: rotate(-0.5turn);
+          transform: rotate(-0.5turn);
+}
+.mark > li:nth-child(7) {
+  -webkit-transform: rotate(0.5833333333turn);
+          transform: rotate(0.5833333333turn);
+}
+.mark > li:nth-child(7)::after {
+  -webkit-transform: rotate(-0.5833333333turn);
+          transform: rotate(-0.5833333333turn);
+}
+.mark > li:nth-child(8) {
+  -webkit-transform: rotate(0.6666666667turn);
+          transform: rotate(0.6666666667turn);
+}
+.mark > li:nth-child(8)::after {
+  -webkit-transform: rotate(-0.6666666667turn);
+          transform: rotate(-0.6666666667turn);
+}
+.mark > li:nth-child(9) {
+  -webkit-transform: rotate(0.75turn);
+          transform: rotate(0.75turn);
+}
+.mark > li:nth-child(9)::after {
+  -webkit-transform: rotate(-0.75turn);
+          transform: rotate(-0.75turn);
+}
+.mark > li:nth-child(10) {
+  -webkit-transform: rotate(0.8333333333turn);
+          transform: rotate(0.8333333333turn);
+}
+.mark > li:nth-child(10)::after {
+  -webkit-transform: rotate(-0.8333333333turn);
+          transform: rotate(-0.8333333333turn);
+}
+.mark > li:nth-child(11) {
+  -webkit-transform: rotate(0.9166666667turn);
+          transform: rotate(0.9166666667turn);
+}
+.mark > li:nth-child(11)::after {
+  -webkit-transform: rotate(-0.9166666667turn);
+          transform: rotate(-0.9166666667turn);
+}
+.mark > li:nth-child(12) {
+  -webkit-transform: rotate(1turn);
+          transform: rotate(1turn);
+}
+.mark > li:nth-child(12)::after {
+  -webkit-transform: rotate(-1turn);
+          transform: rotate(-1turn);
+}
+
+.hand-wrap {
+  top: 0;
+  right: 0;
+  bottom: 50%;
+  left: 50%;
+  position: absolute;
+}
+.hand-wrap::before {
+  width: 18px;
+  height: 18px;
+  bottom: -9px;
+  left: -9px;
+  position: absolute;
+  content: '';
+  z-index: 50;
+  display: block;
+  background: silver;
+  border-radius: 50%;
+}
+
+.hand-hour {
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: -2px;
+  position: absolute;
+  z-index: 10;
+  border-left: 5px solid blue;
+  -webkit-transform-origin: 2px bottom;
+          transform-origin: 2px bottom;
+  -webkit-animation: round linear infinite 43200s;
+          animation: round linear infinite 43200s;
+}
+
+.hand-minute {
+  top: 25%;
+  right: 0;
+  bottom: 0;
+  left: -1px;
+  position: absolute;
+  z-index: 20;
+  border-left: 3px solid green;
+  -webkit-transform-origin: 1px bottom;
+          transform-origin: 1px bottom;
+  -webkit-animation: round linear infinite 3600s;
+          animation: round linear infinite 3600s;
+}
+
+.hand-second {
+  top: 5%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: 30;
+  border-left: 1px solid red;
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+  -webkit-animation: round steps(60, end) infinite 60s;
+          animation: round steps(60, end) infinite 60s;
+}
+
+@-webkit-keyframes round {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes round {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}

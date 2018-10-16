@@ -1,0 +1,74 @@
+{% extends 'base-layui-full.html' %}
+
+{%block title%}
+layui-测试
+{% endblock %}
+
+
+
+{% block body%}
+<style>
+    .layui-btn{
+        margin:10px;
+        margin
+    }
+</style>
+
+<div class="layui-main">
+    <div class="layui-btn-group layui-show" >
+        <button class="layui-btn layui-btn-lg">各项数据</button>
+    </div>
+
+    <div class="layui-btn-group layui-show" >
+        <button class="layui-btn layui-btn-lg layui-bg-gray ">温度</button>
+        <button class="layui-btn layui-btn-lg">30c</button>
+    </div>
+
+    <div class="layui-btn-group layui-show">
+        <button class="layui-btn layui-btn-lg">土壤湿度</button>
+        <button class="layui-btn layui-btn-lg layui-bg-gray ">60%</button>
+    </div>
+
+    <div class="layui-btn-group layui-show">
+        <button class="layui-btn layui-btn-lg">光照</button>
+        <button class="layui-btn layui-btn-lg layui-bg-gray ">40</button>
+    </div>
+
+    <table class="layui-table" lay-size="lg" lay-skin="row" lay-even>
+        <colgroup>
+            <col width="20%"></col>
+            <col width="40%"></col>
+            <col ></col>
+            <thead>
+                <tr>
+                    <th>数据项</th>
+                    <th>数值</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>温度</td>
+                    <td>30</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>湿度</td>
+                    <td>60%</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>光照</td>
+                    <td>100</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+        </colgroup>
+    </table>
+    <a href="https://www.google.com" class="layui-btn layui-btn-radius layui-btn-fluid layui-btn-normal">流体按钮（最大化适应）</a>
+    
+</div>
+
+{% endblock%}
+
+

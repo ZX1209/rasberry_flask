@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html >
+    <head>
+    <meta charset="UTF-8">
+        <title>dataPage-测试</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+
+        <script language="JavaScript" type="text/javascript" src="{{url_for('static',filename='main.js')}}"></script>
+
+        <link rel="stylesheet" href="{{url_for('static',filename='./layui/css/layui.css')}}">
+
+        <script src="{{url_for('static',filename='./layui/layui.all.js')}}"></script>
+    </head>
+
+    <body style="background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);">
+
+        <div class="left-area">     
+            <div class="flower_pot_area" ></div>
+            <div class="time_tick_area" > <img src="{{url_for('static',filename='time_tick.png') }}" alt="time_tick"></div> 
+            <div class="progress_bar_area" >
+                <progress value="10"></progress>
+            </div>
+        </div>
+        <div class="right-area">
+            <table class="layui-table" lay-size="lg" lay-skin="row" lay-even>
+                <colgroup>
+                    <col width="20%"></col>
+                    <col width="40%"></col>
+                    <col ></col>
+                    <thead>
+                        <tr>
+                            <th>数据项</th>
+                            <th>数值</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>温度</td>
+                            <td>30</td>
+                            <td>无</td>
+                        </tr>
+                        <tr>
+                            <td>湿度</td>
+                            <td>60%</td>
+                            <td>无</td>
+                        </tr>
+                        <tr>
+                            <td>光照</td>
+                            <td>100</td>
+                            <td>无</td>
+                        </tr>
+                    </tbody>
+                </colgroup>
+            </table>
+            <a href="https://www.google.com" class="layui-btn layui-btn-radius layui-btn-fluid layui-btn-normal">流体按钮（最大化适应）</a>
+        </div>
+
+       
+    </body>
+    <!-- <script>
+    //设定进度条功能
+    $('#progbar_humidity').progressbar({'value':12,'max':100})
+    $('#progbar_temperature').progressbar({'value':12,'max':100})
+    </script> -->
+
+
+        <script>
+            var form = layui.form;
+            form.render();
+
+            var element = layui.element;
+            element.init();
+
+            var layer = layui.layer;
+        </script>
+    
+
+
+    <!-- //setInterval("changeBg()", 100); -->
+    
+
+
+<style>
+
+
+
+
+progress{
+    /* color: #994949; */
+    /* transform-origin: -200px 5px; */
+    width: 100px;
+    height: 10px;
+    transition: rotate(90deg);
+}
+
+body{
+}
+
+.left-area{
+    position :absolute;
+}
+
+.right-area{
+    position: absolute;
+}
+
+.flower_pot_area{
+    /* position: fixed; */
+    /* margin: 100px; */
+    border-top: 45px solid #090b0d;
+    border-left: 9px solid #200a0a00;
+    border-right: 9px solid transparent;
+    height: 0px;
+    width: 32px;
+    /* margin: auto; */
+    border-top-color: blue;
+    margin: atuo;
+    /* margin: 100px 200px; */
+    /* margin: 0px; */
+    /* margin: auto; */
+    position: absolute;
+    left: 217px;
+    top: 220px;
+}
+
+.main_area{
+    margin:auto;
+}
+
+.time_tick_area{
+    position:static ;
+    top: 0px;
+    left: 0px;
+}
+
+.progress_bar_area{
+    position:absolute;
+    left: 280px;
+    top: 236px;
+    transform-origin: -40px 10px;
+    transform: rotate(60deg);
+    /* width: 10px; */
+    /* height: 10px; */
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+</style>
+</html>
+

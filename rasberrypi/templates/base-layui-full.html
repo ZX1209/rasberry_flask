@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+        <title>{% block title%}{% endblock %}</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+
+        <script language="JavaScript" type="text/javascript" 
+        src="{{url_for('static',filename='main.js')}}"></script>
+
+        <link rel="stylesheet" href="{{url_for('static',filename='./layui/css/layui.css')}}">
+
+        <script src="{{url_for('static',filename='./layui/layui.all.js')}}"></script>
+
+        {% block head%}{% endblock %}
+
+    </head>
+    <body>
+        {% block before_body%}{% endblock %}
+
+        {% block body%}{% endblock %}
+
+        {% block after_body%}{% endblock %}
+
+        <script>
+            var form = layui.form;
+            form.render();
+
+            var element = layui.element;
+            element.init();
+
+            var layer = layui.layer;
+        </script>
+    </body>
+
+</html>
+

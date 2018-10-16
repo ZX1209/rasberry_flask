@@ -1,20 +1,32 @@
+<!DOCTYPE html>
 <html>
     <head>
     <meta charset="UTF-8">
-        <title>douban_page</title>
+        <title>rpi_page</title>
         <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
-        <script language="JavaScript" type="text/javascript" src="{{url_for('static',filename='main.js')}}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{url_for('static',filename='')}}"></script>
+
+        <script language="JavaScript" type="text/javascript" 
+        src="{{url_for('static',filename='main.js')}}"></script>
+
+        <script language="JavaScript" type="text/javascript" 
+        src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
+
+        {% block head_area%}{% endblock %}
+
     </head>
     <body>
-        <div class="header-line" >
+        <div class="header_line" >
             <!--这里是头部-->
-            </div>
-            <div class="main_area" >
-                
-            <div class="movies">
+            {% block header_line %}{% endblock %}
+        </div>
+
+        <div class="main_area" > 
             {% block main_area%}{% endblock %}
-            </div>
+        </div>
+
+        <div class="bottom_line" >
+            <!--这里是底部-->
+            {% block bottom_line %}{% endblock %}
         </div>
     </body>
 </html>

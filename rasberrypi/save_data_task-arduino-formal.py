@@ -6,7 +6,7 @@ import datetime
 import sqlite3
 import logging
 
-logging.basicConfig(format='%(levelname)s:\033[34m %(message)s\033[0m',level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 
 connect=sqlite3.connect('test.db')
 cursor = connect.cursor()
