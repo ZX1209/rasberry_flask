@@ -34,13 +34,13 @@ try:
       t = datetime.datetime.now()
       t=str(t)
 
-      print(t,soil,light,heat,knob,ispeople)
+      # print(t,soil,light,heat,knob,ispeople)
       tmp = (t,light,heat,soil,knob,ispeople)
 
       try:
           cursor.execute('insert into alldata(time,soil,light,heat,knob,ispeople) values(?,?,?,?,?,?)',tmp)
           connect.commit() 
-          logging.debug('saved')
+          logging.debug(('saved',tmp))
           time.sleep(60)
 
       except sqlite3.OperationalError :
@@ -50,7 +50,8 @@ try:
 finally:
     connect.commit()
     connect.close()
-    arduino.close();
+    arduino.close()
+    logging.debug("connection closed")
 
 
 
