@@ -1,5 +1,3 @@
-import json
-import requests
 import serial
 import time
 import datetime
@@ -43,13 +41,11 @@ try:
           cursor.execute('insert into alldata(time,soil,light,heat,knob,ispeople) values(?,?,?,?,?,?)',tmp)
           connect.commit() 
           logging.debug('saved')
-          time.sleep(30)
+          time.sleep(60)
 
       except sqlite3.OperationalError :
           logging.debug('locked')
           time.sleep(2)
-
-
 
 finally:
     connect.commit()

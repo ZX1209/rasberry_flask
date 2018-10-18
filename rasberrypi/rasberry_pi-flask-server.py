@@ -81,30 +81,6 @@ def set(channel,val):
     return 'success'
 ''' 
 
-
-
-# from server
-
-r_ip='127.0.0.1'
-r_port='10000'
-
-
-posts=[ {'key':'温度',
-         'value':12
-         },
-         {'key':'湿度',
-         'value':12
-         },
-         {'key':'氧气',
-         'value':12
-         },
-         {'key':'阳光',
-         'value':12
-         },
-         {'key':'声音',
-         'value':12
-         }]
-
 # home page
 @app.route('/',methods=['GET'])
 def get_homepage():
@@ -128,17 +104,17 @@ def set_r_ip():
     return jsonify(ip=user_ip,port=user_port)    
 
 
-@app.route('/info',methods=['GET'])
-def show_info():
+# @app.route('/info',methods=['GET'])
+# def show_info():
     
-    return render_template('info.html',posts=posts)
+#     return render_template('info.html',posts=posts)
 
-@app.route('/info',methods=['POST'])
-def post_info():
-    global posts
-    json_data=request.get_json(force=True)
-    posts=json_data
-    return 'ok'
+# @app.route('/info',methods=['POST'])
+# def post_info():
+#     global posts
+#     json_data=request.get_json(force=True)
+#     posts=json_data
+#     return 'ok'
 
 
 
@@ -146,6 +122,12 @@ def post_info():
 @app.route('/charts')
 def get_charts():
     return render_template('charts.html')
+
+# sudo
+@app.route('/sudo/<path:templateName>')
+def return_template(templateName):
+    print(templateName)
+    return render_template(templateName)
 
 
 if __name__=="__main__":

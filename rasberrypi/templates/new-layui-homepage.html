@@ -1,0 +1,78 @@
+{% extends 'new-layui-full-base.html' %}
+
+
+{% block layui_main%}
+<script language="JavaScript" type="text/javascript" src="{{url_for('static',filename='main.js')}}"></script>
+
+<script>
+    function changeBg()
+    {
+        if(flag>350)
+        {
+            flag=0;
+        }
+        else{
+            flag+=1;
+        }
+        n = flag
+        var b = b = document.getElementsByClassName('data-table')[0]
+        b.style.cssText  = "background:"+genBg(n)
+    }
+
+    setInterval(changeBg, 100);
+</script>
+
+<style>
+    .data-table{
+        margin-top:20%;
+        margin-left:10%;
+    }
+
+    .bg{
+        position: fixed;
+        top: 0;
+        bottom:0;
+        right: 0;
+        left:200px;
+
+        background: linear-gradient(0deg, rgba(0,0,255,.2), rgba(0,255,0,0) 60%),linear-gradient(135deg, rgba(255,255,0,.2), rgba(255,0,0,0) 60%),linear-gradient(225deg, rgba(255,0,0,.2), rgba(0,0,255,0) 70.71%);
+    }
+</style>
+    <div class="bg">
+    </div>
+        <div class="data-table">
+            <table class="layui-table" lay-size="lg" lay-skin="row" lay-even>
+                <colgroup>
+                    <col width="20%"></col>
+                    <col width="40%"></col>
+                    <col ></col>
+                    <thead>
+                        <tr>
+                            <th>数据项</th>
+                            <th>数值</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>温度</td>
+                            <td>30</td>
+                            <td>无</td>
+                        </tr>
+                        <tr>
+                            <td>湿度</td>
+                            <td>60%</td>
+                            <td>无</td>
+                        </tr>
+                        <tr>
+                            <td>光照</td>
+                            <td>100</td>
+                            <td>无</td>
+                        </tr>
+                    </tbody>
+                </colgroup>
+            </table>
+            <a href="https://www.google.com" class="layui-btn layui-btn-fluid layui-btn-normal">流体按钮（最大化适应）</a>
+        </div>
+
+{% endblock %}

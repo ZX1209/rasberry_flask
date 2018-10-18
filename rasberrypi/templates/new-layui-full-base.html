@@ -1,0 +1,29 @@
+{% extends 'base-layui-full.html' %}
+
+{%block title%}
+new-layui-page-测试
+{% endblock %}
+
+
+
+{% block body%}
+
+<ul class="layui-nav layui-nav-tree layui-nav-side" lay-filter="test">
+<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+  <li class="layui-nav-item layui-nav-itemed">
+    <a href="./new-layui-homepage.html">主页面</a>
+  </li>
+
+  <li class="layui-nav-item">
+    <a href="./new-layui-charts.html">数据页面</a>
+  </li>
+
+</ul>
+
+<div class="layui-main" >
+    {% block layui_main%}{% endblock %}
+</div>
+
+{% endblock%}
+
+
