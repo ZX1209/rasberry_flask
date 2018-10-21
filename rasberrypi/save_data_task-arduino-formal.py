@@ -4,13 +4,19 @@ import datetime
 import sqlite3
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename=r'arduino-db.log',level=logging.DEBUG)
 
 connect=sqlite3.connect('test.db')
 cursor = connect.cursor()
 
-
-arduino = serial.Serial('/dev/ttyACM0',9600,timeout=2);
+while True:
+    try:
+        arduino = serial.Serial('/dev/ttyACM0',9600,timeout=2);
+        break
+    except:
+        print('not connected')
+        time.sleep(30)
+        continue
 
 arduino.write(b'h')
 arduino.readall()
