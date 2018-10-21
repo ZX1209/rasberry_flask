@@ -9,8 +9,12 @@ logging.basicConfig(level=logging.DEBUG)
 connect=sqlite3.connect('test.db')
 cursor = connect.cursor()
 
-
-arduino = serial.Serial('/dev/ttyACM0',9600,timeout=2);
+while True:
+  try:
+    arduino = serial.Serial('/dev/ttyACM0',9600,timeout=2);
+    break
+  except:
+    continue
 
 arduino.write(b'h')
 arduino.readall()
@@ -35,7 +39,7 @@ try:
       t=str(t)
 
       # print(t,soil,light,heat,knob,ispeople)
-      tmp = (t,light,heat,soil,knob,ispeople)
+      tmp = (t,soil,light,heat,knob,ispeople)
 
       try:
           cursor.execute('insert into alldata(time,soil,light,heat,knob,ispeople) values(?,?,?,?,?,?)',tmp)
