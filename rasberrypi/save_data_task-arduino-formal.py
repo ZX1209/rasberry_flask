@@ -41,7 +41,7 @@ try:
       t=str(t)
 
       # print(t,soil,light,heat,knob,ispeople)
-      tmp = (t,light,heat,soil,knob,ispeople)
+      tmp = (t,soil,light,heat,knob,ispeople)
 
       try:
           cursor.execute('insert into alldata(time,soil,light,heat,knob,ispeople) values(?,?,?,?,?,?)',tmp)
