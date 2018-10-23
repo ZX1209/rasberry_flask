@@ -20,6 +20,7 @@ src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
     }
     .title{
         text-align: center;
+        margin-left: 12%;
     }
 </style>
 
@@ -91,7 +92,6 @@ src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
                 yAxis: {
                     type: 'value',
                     name:'温度/℃',
-                    min:20,
                     nameTextStyle:{
                         fontSize:20,
                         color:'blue'
@@ -200,7 +200,6 @@ src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
                 yAxis: {
                     type: 'value',
                     name:'光照强度/lx',
-                    min:200
                 },
                 series: {
                     name:'光照强度',
@@ -329,10 +328,10 @@ src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
             soilData = []
 
             for(var i =0 ;i<data['result'].length;i++){
-                dates.push(data['result'][i][0].substr(10))
-                lightData.push(data['result'][i][1])
-                heatData.push(data['result'][i][2])
-                soilData.push(data['result'][i][3]/10)
+                dates.push(data['result'][i][0].substr(10,6))
+                soilData.push(data['result'][i][1]/10)
+                lightData.push(data['result'][i][2])
+                heatData.push(data['result'][i][3])
             }
             tempCharts(dates,heatData)
             lightCharts(dates,lightData)

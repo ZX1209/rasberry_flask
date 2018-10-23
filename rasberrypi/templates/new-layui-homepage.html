@@ -40,7 +40,7 @@
         /*background: linear-gradient(0deg, rgba(0,0,255,.2), rgba(0,255,0,0) 60%),linear-gradient(135deg, rgba(255,255,0,.2), rgba(255,0,0,0) 60%),linear-gradient(225deg, rgba(255,0,0,.2), rgba(0,0,255,0) 70.71%);*/
     }
 </style>
-    <div class="bg" background="linear-gradient(217deg, rgba(255,0,0,.2), rgba(255,0,0,0) {0}%),linear-gradient(127deg, rgba(0,0,255,.2), rgba(0,255,0,0) {1}%),linear-gradient(336deg, rgba(255,0,255,.2), rgba(0,0,255,0) {2}%);">
+    <div class="bg" background="linear-gradient(135deg, rgba(255,0,0,.2), rgba(255,0,0,0) 70%),linear-gradient(0deg, rgba(0,0,255,.2), rgba(0,255,0,0) 70%),linear-gradient(225deg, rgba(255,0,255,.2), rgba(0,0,255,0) 70%);">
 
     </div>
         <div class="data-table">
@@ -59,31 +59,54 @@
                     <tbody>
                         <tr>
                             <td>温度</td>
-                            <td>30</td>
+                            <td class="heat_td">30</td>
                             <td>无</td>
                         </tr>
                         <tr>
                             <td>湿度</td>
-                            <td>60%</td>
+                            <td class="soil_td">60%</td>
                             <td>无</td>
                         </tr>
                         <tr>
                             <td>光照</td>
-                            <td>100</td>
+                            <td class="light_td">100</td>
+                            <td>无</td>
+                        </tr>
+                        <tr>
+                            <td>设定阈值</td>
+                            <td class="knob_td">100</td>
                             <td>无</td>
                         </tr>
                     </tbody>
                 </colgroup>
+
             </table>
-            <a href="https://www.google.com" class="layui-btn layui-btn-fluid layui-btn-normal">流体按钮（最大化适应）</a>
+            <!-- <div class="layui-btn layui-btn-fluid layui-btn-normal">
+                <a href="./new-layui-charts.html" >详细表</a>
+            </div> -->
+            
         </div>
 <script>
+    function update_table(heat,soil,light,k){
+        soil_td = document.getElementsByClassName('soil_td')[0]
+        heat_td = document.getElementsByClassName('heat_td')[0]
+        light_td = document.getElementsByClassName('light_td')[0]
+        knob_td = document.getElementsByClassName('knob_td')[0]
+
+        soil_td.innerText = soil
+        heat_td.innerText = heat
+        light_td.innerText = light
+        knob_td.innerText = k
+    }
+
+
+
     function genBg(n1,n2,n3)
     {
         var fdeg = n1;
         var sdeg = n2;
         var tdeg = n2;
-        var template = "linear-gradient(217deg, rgba(255,0,0,.2), rgba(255,0,0,0) {0}%),linear-gradient(127deg, rgba(0,0,255,.2), rgba(0,255,0,0) {1}%),linear-gradient(336deg, rgba(255,0,255,.2), rgba(0,0,255,0) {2}%);"
+        var template = "linear-gradient(135deg, rgba(255,0,0,.2), rgba(255,0,0,0) {0}%),linear-gradient(0deg, rgba(0,0,255,.2), rgba(0,255,0,0) {1}%),linear-gradient(225deg, rgba(255,0,255,.2), rgba(0,0,255,0) {2}%);"
 
         return template.format(fdeg,sdeg,tdeg)
     }
@@ -104,16 +127,20 @@
         lightData = []
         heatData = []
         soilData = []
+        var knob = 0
 
         // alldata(time,soil,light,heat,knob,ispeople
         for(var i =0 ;i<data['result'].length;i++){
             dates.push(data['result'][i][0].substr(10))
-            soilData.push(data['result'][i][1]/10)
+            soilData.push(data['result'][i][1])
             lightData.push(data['result'][i][2])
             heatData.push(data['result'][i][3])
+            knob = data['result'][i][4]
         }
         // 数据映射..
-        changeBg(heatData[0]/10,soilData[0],lightData[0])
+        changeBg(70*heatData[0]/40,70*soilData[0]/1000,70*lightData[0]/1000);
+        update_table(heatData[0],soilData[0],lightData[0],knob);
+
     }
 
     function tmp(){
@@ -122,7 +149,11 @@
             success:update_colors})
     }
 
-    setInterval(tmp,1000)
+    setInterval(tmp,60000)
+
+    $.ajax({
+            url:'{{ url_for('get_recent',nums=1) }}',
+            success:update_colors})
         
 </script>
 {% endblock %}

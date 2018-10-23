@@ -43,7 +43,7 @@ def css_clock():
 @app.route('/test/curent')
 def get_curent():
     cur = get_db().cursor()
-    cur.execute("select * from alldata limit 1")
+    cur.execute("select * from alldata order by time desc limit 1")
     tmp = cur.fetchall()
     return jsonify(result=tmp)
 
@@ -51,7 +51,7 @@ def get_curent():
 def get_recent(nums=1):
     cur = get_db().cursor()
     # alldata(time,soil,light,heat,knob,ispeople)
-    cur.execute("select * from alldata limit ?",(nums,))
+    cur.execute("select * from alldata order by time desc limit ?",(nums,))
     tmp = cur.fetchall()
     return jsonify(result=tmp)
 
