@@ -47,6 +47,14 @@ def get_curent():
     tmp = cur.fetchall()
     return jsonify(result=tmp)
 
+@app.route('/test/recent/<int:nums>')
+def get_recent(nums=1):
+    cur = get_db().cursor()
+    # alldata(time,soil,light,heat,knob,ispeople)
+    cur.execute("select * from alldata limit ?",(nums,))
+    tmp = cur.fetchall()
+    return jsonify(result=tmp)
+
 
 @app.route('/test/delta/hour/<int:deltahour>')
 def get_delta_data(deltahour):
@@ -69,6 +77,7 @@ def get_delta_data_minute(deltaminute):
     cur.execute("select * from alldata where time>?",t)
     tmp = cur.fetchall()
     return jsonify(result=tmp)
+
 
 
 

@@ -4,6 +4,8 @@
 {% block layui_main%}
 <script language="JavaScript" type="text/javascript" src="{{url_for('static',filename='main.js')}}"></script>
 
+<script language="JavaScript" type="text/javascript" src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
+
 <script>
     function changeBg()
     {
@@ -35,10 +37,11 @@
         right: 0;
         left:200px;
 
-        background: linear-gradient(0deg, rgba(0,0,255,.2), rgba(0,255,0,0) 60%),linear-gradient(135deg, rgba(255,255,0,.2), rgba(255,0,0,0) 60%),linear-gradient(225deg, rgba(255,0,0,.2), rgba(0,0,255,0) 70.71%);
+        /*background: linear-gradient(0deg, rgba(0,0,255,.2), rgba(0,255,0,0) 60%),linear-gradient(135deg, rgba(255,255,0,.2), rgba(255,0,0,0) 60%),linear-gradient(225deg, rgba(255,0,0,.2), rgba(0,0,255,0) 70.71%);*/
     }
 </style>
-    <div class="bg">
+    <div class="bg" background="linear-gradient(217deg, rgba(255,0,0,.2), rgba(255,0,0,0) {0}%),linear-gradient(127deg, rgba(0,0,255,.2), rgba(0,255,0,0) {1}%),linear-gradient(336deg, rgba(255,0,255,.2), rgba(0,0,255,0) {2}%);">
+
     </div>
         <div class="data-table">
             <table class="layui-table" lay-size="lg" lay-skin="row" lay-even>
@@ -74,5 +77,52 @@
             </table>
             <a href="https://www.google.com" class="layui-btn layui-btn-fluid layui-btn-normal">流体按钮（最大化适应）</a>
         </div>
+<script>
+    function genBg(n1,n2,n3)
+    {
+        var fdeg = n1;
+        var sdeg = n2;
+        var tdeg = n2;
+        var template = "linear-gradient(217deg, rgba(255,0,0,.2), rgba(255,0,0,0) {0}%),linear-gradient(127deg, rgba(0,0,255,.2), rgba(0,255,0,0) {1}%),linear-gradient(336deg, rgba(255,0,255,.2), rgba(0,0,255,0) {2}%);"
 
+        return template.format(fdeg,sdeg,tdeg)
+    }
+
+    function changeBg(n1,n2,n3)
+    {
+        var b = document.getElementsByClassName('bg')[0]
+        b.style.cssText  = "background:"+genBg(n1,n2,n3)
+    }
+
+    var dates = []
+    var lightData = []
+    var heatData = []
+    var soilData = []
+
+    function update_colors(data){
+        dates = []
+        lightData = []
+        heatData = []
+        soilData = []
+
+        // alldata(time,soil,light,heat,knob,ispeople
+        for(var i =0 ;i<data['result'].length;i++){
+            dates.push(data['result'][i][0].substr(10))
+            soilData.push(data['result'][i][1]/10)
+            lightData.push(data['result'][i][2])
+            heatData.push(data['result'][i][3])
+        }
+        // 数据映射..
+        changeBg(heatData[0]/10,soilData[0],lightData[0])
+    }
+
+    function tmp(){
+        $.ajax({
+            url:'{{ url_for('get_recent',nums=1) }}',
+            success:update_colors})
+    }
+
+    setInterval(tmp,1000)
+        
+</script>
 {% endblock %}

@@ -12,21 +12,33 @@ src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
     body{
         background-image: url("{{ url_for('static',filename='bg.jpg') }}")
     }
+
+    .charts_area{
+        text-align: center;
+        margin-left:10%;
+        margin-top: 10px;
+    }
+    .title{
+        text-align: center;
+    }
 </style>
 
 {% endblock %}
 
 {% block layui_main%}
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<style>
-    .charts-area{
-        text-align: center;
-        margin-left:10%;
-    }
-</style>
 <div class="charts-area">
-    <h1 class="title" text-align="center"> 数据图表展示 </h1>
+
+    <h1 class="title"> 数据图表展示 </h1>
     <div class="charts_area" >
+        <span class="layui-breadcrumb" lay-separator="-">
+            <a onclick="refresh_data(1);">今天</a>
+            <a onclick="refresh_data(3);">三天</a>
+            <a onclick="refresh_data(7);">一周</a>
+            <a onclick="recent_data(10);">最近</a>
+            <a onclick="recent_data(100);">较早</a>
+        </span>
+        <br>
         <div id="temp" class="charts"  style="width: 750px; height:450px;"></div>
         <div id="light" class="charts" style="width: 750px;  height:450px;"></div>
         <!-- <div id="air"   style="width: 750px; height: 450px;"></div> -->
@@ -330,9 +342,23 @@ src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
         
 
         $.ajax({
-            url:'{{ url_for('test_db') }}',
+            url:'{{ url_for('get_recent',nums=10) }}',
             success:updatedatas
         })
+
+        function refresh_data(n){
+                $.ajax({
+                url:'/test/delta/hour/'+n*24,
+                success:updatedatas
+            })
+        }
+
+        function recent_data(n){
+                $.ajax({
+                url:'/test/recent/'+n,
+                success:updatedatas
+            })
+        }
     </script>
 </div>
 
