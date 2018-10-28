@@ -93,7 +93,7 @@ def set(channel,val):
 # home page
 @app.route('/',methods=['GET'])
 def get_homepage():
-    return render_template('data_page.html')
+    return render_template('new-layui-homepage.html')
 
 # 测试
 @app.route('/hello')
