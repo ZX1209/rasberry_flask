@@ -1,0 +1,43 @@
+﻿{% extends 'main.html' %}
+
+{% block main_area %}
+
+<div class="informations">
+    <div class="information">
+        <h2>
+            <span class="key">
+                湿度:
+            </span>
+            <span class="value">
+                12
+            </span>
+        </h2>
+    </div>
+
+    <div class="information">
+        <h2>
+            <span class="key">
+                温度
+            </span>
+            <span class="value">
+                12
+            </span>
+        </h2>
+    </div>
+
+    {%for post in posts %}
+    <div class="information">
+        <h2>
+            <span class="key">
+                {{post.key}}
+            </span>
+            <span class="value">
+                {{post.value}}
+             
+            </span>
+        </h2>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

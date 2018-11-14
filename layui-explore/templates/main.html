@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+        <title>rpi_page</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+
+        <script language="JavaScript" type="text/javascript" 
+        src="{{url_for('static',filename='main.js')}}"></script>
+
+        <script language="JavaScript" type="text/javascript" 
+        src="{{url_for('static',filename='jquery-3.3.1.js')}}"></script>
+
+        <link rel="stylesheet" href="{{url_for('static',filename='./layui/css/layui.css')}}">
+
+        <script src="{{url_for('static',filename='./layui/layui.all.js')}}"></script>
+
+
+        {% block head_area%}{% endblock %}
+
+    </head>
+
+    <body>
+        <script>
+          var form = layui.form;
+
+          //监听提交
+          form.on('submit(formDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+          });
+        </script>
+        <script>
+        // 一般直接写在一个js文件中
+
+         function hello(){
+              var layer = layui.layer;
+              var form = layui.form;
+              
+              layer.msg('Hello World');
+        }
+
+        // hello();
+        // layui.use(
+        //     ["layer","form"],
+        //     function hello(){
+        //       var layer = layui.layer;
+        //       var form = layui.form;
+              
+        //       layer.msg('Hello World');  
+        //     }
+        //     )
+
+
+
+        </script> 
+
+        <div class="header_line" >
+            <!--这里是头部-->
+            {% block header_line %}{% endblock %}
+        </div>
+
+        <div class="main_area" > 
+            {% block main_area%}{% endblock %}
+        </div>
+
+        <div class="bottom_line" >
+            <!--这里是底部-->
+            {% block bottom_line %}{% endblock %}
+        </div>
+    </body>
+</html>
+

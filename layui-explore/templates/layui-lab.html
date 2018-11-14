@@ -1,0 +1,352 @@
+{% extends 'main.html' %}
+
+{% block main_area %}
+
+<!-- <div class="layui-main layui-bg-orange"     style="height: 100px;background-color: red;">
+ -->
+
+ <!-- 推荐用 i 标签呢..算了 -->
+
+
+
+<div class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></div>  
+
+内置图标一览
+<br>
+<div class="layui-container">
+
+    <div class="layui-row">
+      <div class="layui-col-md3 layui-bg-orange">
+        <div class="grid-demo">内容1</div>
+      </div>
+      <div class="layui-col-md6 layui-bg-blue">
+        <div class="grid-demo">内容1</div>
+      </div>
+      <div class="layui-col-md3 layui-bg-black">
+        <div class="grid-demo">内容1</div>
+      </div>
+</div>
+
+<button class="layui-btn">一个标准的按钮</button>
+<a href="http://www.layui.com" class="layui-btn">一个可跳转的按钮</a>
+
+
+<div class="layui-btn-container">
+  <button class="layui-btn">按钮一</button> 
+  <button class="layui-btn">按钮二</button> 
+  <button class="layui-btn">按钮三</button> 
+  <button class="layui-btn">组一</button> 
+  <button class="layui-btn">组二</button> 
+  <button class="layui-btn">组三</button> 
+</div>
+
+<div class="layui-btn-group">
+  <button class="layui-btn">增加</button>
+  <button class="layui-btn">编辑</button>
+  <button class="layui-btn">删除</button>
+</div>
+
+
+<form class="layui-form" action="">
+  <div class="layui-form-item">
+    <label class="layui-form-label">输入框</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">密码框</label>
+    <div class="layui-input-inline">
+      <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+    </div>
+    <div class="layui-form-mid layui-word-aux">辅助文字</div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">选择框</label>
+    <div class="layui-input-block">
+      <select name="city" lay-verify="required">
+        <option value=""></option>
+        <option value="0">北京</option>
+        <option value="1">上海</option>
+        <option value="2">广州</option>
+        <option value="3">深圳</option>
+        <option value="4">杭州</option>
+      </select>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">复选框</label>
+    <div class="layui-input-block">
+      <input type="checkbox" name="like[write]" title="写作">
+      <input type="checkbox" name="like[read]" title="阅读" checked>
+      <input type="checkbox" name="like[dai]" title="发呆">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">开关</label>
+    <div class="layui-input-block">
+      <input type="checkbox" name="switch" lay-skin="switch">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">单选框</label>
+    <div class="layui-input-block">
+      <input type="radio" name="sex" value="男" title="男">
+      <input type="radio" name="sex" value="女" title="女" checked>
+    </div>
+  </div>
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">文本域</label>
+    <div class="layui-input-block">
+      <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+
+<hr class="layui-bg-red">
+
+
+<ul class="layui-nav" lay-filter="">
+  <li class="layui-nav-item"><a href="">最新活动</a></li>
+  <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+  <li class="layui-nav-item"><a href="">大数据</a></li>
+
+  <li class="layui-nav-item">
+    <a href="javascript:;">解决方案</a>
+    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+      <dd><a href="">移动模块</a></dd>
+      <dd><a href="">后台模版</a></dd>
+      <dd><a href="">电商平台</a></dd>
+    </dl>
+  </li>
+
+  <li class="layui-nav-item"><a href="">社区</a></li>
+</ul>
+
+<hr class="layui-bg-red" height="10px">
+
+<ul class="layui-nav">
+  <li class="layui-nav-item">
+    <a href="">控制台<span class="layui-badge">9</span></a>
+  </li>
+  <li class="layui-nav-item">
+    <a href="">个人中心<span class="layui-badge-dot"></span></a>
+  </li>
+  <li class="layui-nav-item">
+    <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
+    <dl class="layui-nav-child">
+      <dd><a href="javascript:;">修改信息</a></dd>
+      <dd><a href="javascript:;">安全管理</a></dd>
+      <dd><a href="javascript:;">退了</a></dd>
+    </dl>
+  </li>
+</ul>
+
+<hr class="layui-bg-blue" width="120px" height="20px">
+
+<ul class="layui-nav layui-nav-tree layui-nav-side" lay-filter="test">
+<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+  <li class="layui-nav-item layui-nav-itemed">
+    <a href="javascript:;">默认展开</a>
+    <dl class="layui-nav-child">
+      <dd><a href="javascript:;">选项1</a></dd>
+      <dd><a href="javascript:;">选项2</a></dd>
+      <dd><a href="">跳转</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item">
+    <a href="javascript:;">解决方案</a>
+    <dl class="layui-nav-child">
+      <dd><a href="">移动模块</a></dd>
+      <dd><a href="">后台模版</a></dd>
+      <dd><a href="">电商平台</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item"><a href="">产品</a></li>
+  <li class="layui-nav-item"><a href="">大数据</a></li>
+</ul>
+ 
+ <hr class="layui-bg-black">
+
+ <span class="layui-breadcrumb" lay-separator="|">
+  <a href="">娱乐</a>
+  <a href="">八卦</a>
+  <a href="">体育</a>
+  <a href="">搞笑</a>
+  <a href="">视频</a>
+  <a href="">游戏</a>
+  <a href="">综艺</a>
+</span>
+
+<hr class="layui-bg-red">
+
+<div class="layui-tab layui-tab-card">
+  <ul class="layui-tab-title">
+    <li class="layui-this">网站设置</li>
+    <li>用户管理</li>
+    <li>权限分配</li>
+    <li>商品管理</li>
+    <li>订单管理</li>
+  </ul>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">内容1</div>
+    <div class="layui-tab-item">内容2</div>
+    <div class="layui-tab-item">内容3</div>
+    <div class="layui-tab-item">内容4</div>
+    <div class="layui-tab-item">内容5</div>
+  </div>
+</div>
+
+
+<hr class="layui-bg-red">
+<div class="layui-progress layui-progress-big " lay-showPercent="true">
+  <div class="layui-progress-bar" lay-percent="10%"></div>
+</div>
+
+<hr class="layui-bg-red">
+
+<div class="layui-card" background-color="red">
+  <div class="layui-card-header">卡片面板</div>
+  <div class="layui-card-body">
+    卡片式面板面板通常用于非白色背景色的主体内<br>
+    从而映衬出边框投影
+  </div>
+</div>
+
+
+<div class="layui-collapse">
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title">杜甫</h2>
+    <div class="layui-colla-content layui-show">内容区域</div>
+  </div>
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title">李清照</h2>
+    <div class="layui-colla-content layui-show">内容区域</div>
+  </div>
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title">鲁迅</h2>
+    <div class="layui-colla-content layui-show">内容区域</div>
+  </div>
+</div>
+
+<hr class="layui-bg-yellow">
+
+<table class="layui-table" lay-even>
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+
+  <thead>
+    <tr>
+      <th>昵称</th>
+      <th>加入时间</th>
+      <th>签名</th>
+    </tr> 
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>贤心</td>
+      <td>2016-11-29</td>
+      <td>人生就像是一场修行</td>
+    </tr>
+    <tr>
+      <td>许闲心</td>
+      <td>2016-11-28</td>
+      <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+    </tr>
+  </tbody>
+</table>
+
+小圆点，通过 layui-badge-dot 来定义，里面不能加文字
+<span class="layui-badge-dot"></span>
+<span class="layui-badge-dot layui-bg-orange"></span>
+<span class="layui-badge-dot layui-bg-green"></span>
+<span class="layui-badge-dot layui-bg-cyan"></span>
+<span class="layui-badge-dot layui-bg-blue"></span>
+<span class="layui-badge-dot layui-bg-black"></span>
+<span class="layui-badge-dot layui-bg-gray"></span>
+ 
+椭圆体，通过 layui-badge 来定义。事实上我们把这个视作为主要使用方式
+<span class="layui-badge">6</span>
+<span class="layui-badge">99</span>
+<span class="layui-badge">61728</span>
+ 
+<span class="layui-badge">赤</span>
+<span class="layui-badge layui-bg-orange">橙</span>
+<span class="layui-badge layui-bg-green">绿</span>
+<span class="layui-badge layui-bg-cyan">青</span>
+<span class="layui-badge layui-bg-blue">蓝</span>
+<span class="layui-badge layui-bg-black">黑</span>
+<span class="layui-badge layui-bg-gray">灰</span>
+ 
+边框体，通过 layui-badge-rim 来定义
+<span class="layui-badge-rim">6</span>
+<span class="layui-badge-rim">Hot</span>
+
+<hr>
+
+<ul class="layui-timeline">
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+    <div class="layui-timeline-content layui-text">
+      <h3 class="layui-timeline-title">8月18日</h3>
+      <p>
+        layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
+        <br>不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
+        <br>无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
+      </p>
+    </div>
+  </li>
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+    <div class="layui-timeline-content layui-text">
+      <h3 class="layui-timeline-title">8月16日</h3>
+      <p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君尧舜上，再使风俗淳</em>”的宏伟抱负。个人最爱的名篇有：</p>
+      <ul>
+        <li>《登高》</li>
+        <li>《茅屋为秋风所破歌》</li>
+      </ul>
+    </div>
+  </li>
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+    <div class="layui-timeline-content layui-text">
+      <h3 class="layui-timeline-title">8月15日</h3>
+      <p>
+        中国人民抗日战争胜利72周年
+        <br>常常在想，尽管对这个国家有这样那样的抱怨，但我们的确生在了最好的时代
+        <br>铭记、感恩
+        <br>所有为中华民族浴血奋战的英雄将士
+        <br>永垂不朽
+      </p>
+    </div>
+  </li>
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+    <div class="layui-timeline-content layui-text">
+      <div class="layui-timeline-title">过去</div>
+    </div>
+  </li>
+</ul>
+
+ <script>
+
+var element = layui.element;
+element.init()
+
+</script>
+ 
+<script>
+  form.render();
+</script>
+      
+{% endblock %}
